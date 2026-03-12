@@ -1,31 +1,24 @@
 ```markdown
-# DreamWeaver MVP
+# DreamWeaver API
 
-A simple Flask backend for the DreamWeaver mental wellness platform.
+This is a simple Flask MVP for the DreamWeaver startup idea. The API provides endpoints for managing users and their sleep data.
 
-## Overview
+## Run Instructions
 
-This project provides a basic API for user management, including routes to get all users, get a user by ID, and create a new user.
-
-## Running the Project
-
-1. Clone the repository: `git clone https://github.com/your-username/dreamweaver-mvp.git`
+1. Clone the repository: `git clone https://github.com/your-repo/dreamweaver.git`
 2. Install dependencies: `pip install -r requirements.txt`
-3. Run the Flask app: `python app.py`
-4. Open a web browser and navigate to `http://localhost:5000/users` to test the API
+3. Run the API: `python app.py`
+4. Access the API at: `http://localhost:5000`
 
 ## API Endpoints
 
 * `GET /users`: Get all users
-* `GET /users/<int:user_id>`: Get a user by ID
+* `GET /users/<int:user_id>`: Get user by ID
 * `POST /users`: Create a new user
 
-## Future Development
+## Example Usage
 
-This is a minimal viable product (MVP) and will be expanded to include features such as:
-
-* Cognitive behavioral therapy (CBT) sessions
-* Immersive virtual reality (VR) experiences
-* Mood tracking and community support
-* Subscription-based revenue model
+* Get all users: `curl http://localhost:5000/users`
+* Get user by ID: `curl http://localhost:5000/users/1`
+* Create a new user: `curl -X POST -H "Content-Type: application/json" -d '{"name": "New User"}' http://localhost:5000/users`
 ```
