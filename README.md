@@ -1,24 +1,30 @@
+
 ```markdown
-# DreamWeaver API
+# DreamWeaver MVP
+## Introduction
+DreamWeaver is an AI-powered mental wellness platform that utilizes brain-computer interface (BCI) technology to monitor and regulate users' sleep patterns. This repository contains a simple Flask MVP for the DreamWeaver platform.
 
-This is a simple Flask MVP for the DreamWeaver startup idea. The API provides endpoints for managing users and their sleep data.
+## Prerequisites
+* Python 3.8+
+* pip 20.0+
 
-## Run Instructions
+## Installation
+1. Clone this repository: `git clone https://github.com/your-username/dreamweaver-mvp.git`
+2. Create a virtual environment: `python -m venv venv`
+3. Activate the virtual environment: `source venv/bin/activate` (on Linux/Mac) or `venv\Scripts\activate` (on Windows)
+4. Install dependencies: `pip install -r requirements.txt`
 
-1. Clone the repository: `git clone https://github.com/your-repo/dreamweaver.git`
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run the API: `python app.py`
-4. Access the API at: `http://localhost:5000`
+## Run the Application
+1. Run the application: `python app.py`
+2. Open a web browser and navigate to `http://localhost:5000`
 
 ## API Endpoints
-
-* `GET /users`: Get all users
-* `GET /users/<int:user_id>`: Get user by ID
+* `GET /users`: Retrieve a list of all users
 * `POST /users`: Create a new user
 
 ## Example Usage
-
-* Get all users: `curl http://localhost:5000/users`
-* Get user by ID: `curl http://localhost:5000/users/1`
-* Create a new user: `curl -X POST -H "Content-Type: application/json" -d '{"name": "New User"}' http://localhost:5000/users`
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name": "John Doe", "email": "john@example.com"}' http://localhost:5000/users
+```
+This will create a new user with the name "John Doe" and email "john@example.com".
 ```
