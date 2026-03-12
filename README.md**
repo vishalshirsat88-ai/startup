@@ -1,26 +1,32 @@
 ```markdown
-# EcoMind MVP
+# DreamWeaver MVP
 
-This is a simple Flask MVP for the EcoMind startup idea.
+DreamWeaver is an AI-powered mental wellness platform that utilizes natural language processing, machine learning, and cognitive behavioral therapy to provide personalized mental health support.
 
 ## Project Overview
 
-EcoMind is an AI-powered sustainability platform that helps individuals and businesses reduce their carbon footprint by providing personalized recommendations for energy-efficient practices, waste reduction, and eco-friendly product alternatives.
+This repository contains the Flask backend code for the DreamWeaver MVP. The platform offers API endpoints for mood tracking, personalized recommendations, and sentiment analysis.
+
+## Installation
+
+1. Clone the repository: `git clone https://github.com/your-username/dreamweaver-mvp.git`
+2. Install dependencies: `pip install -r requirements.txt`
+3. Download NLTK data: `python -m nltk.downloader vader_lexicon`
 
 ## Run Instructions
 
-1. Clone the repository: `git clone https://github.com/your-username/ecomind-mvp.git`
-2. Create a virtual environment: `python -m venv env`
-3. Activate the virtual environment: `source env/bin/activate` (on Linux/Mac) or `env\Scripts\activate` (on Windows)
-4. Install dependencies: `pip install -r requirements.txt`
-5. Run the application: `python app.py`
-6. Access the API endpoints at `http://localhost:5000`
+1. Run the Flask app: `python app.py`
+2. Access the API endpoints using a tool like Postman or cURL
 
 ## API Endpoints
 
-* `GET /users`: Get a list of users
-* `GET /recommendations`: Get a list of sustainability recommendations
-* `POST /users`: Create a new user
-```
+* `/mood`: Track user mood (POST)
+* `/recommendations`: Get personalized recommendations (GET)
+* `/sentiment`: Analyze sentiment of user input (POST)
 
-Note: This is a very basic implementation and you may want to add more features, error handling, and security measures to your application.
+## Future Development
+
+* Integrate with AI-powered chatbots
+* Develop a user-friendly frontend interface
+* Implement subscription-based model and B2B partnerships
+```

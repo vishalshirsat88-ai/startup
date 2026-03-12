@@ -1,47 +1,51 @@
-Here are the requested files:
+Here are the requested files for the DreamWeaver MVP:
 
 ```python
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-import os
+import nltk
+from nltk.sentiment import SentimentIntensityAnalyzer
 
 app = Flask(__name__)
 CORS(app)
 
-# Sample data for demonstration purposes
-users = [
-    {"id": 1, "name": "John Doe", "email": "john@example.com"},
-    {"id": 2, "name": "Jane Doe", "email": "jane@example.com"}
-]
+# Initialize sentiment analyzer
+sia = SentimentIntensityAnalyzer()
 
-# Sample sustainability recommendations
-recommendations = [
-    {"id": 1, "title": "Use public transport", "description": "Reduce carbon footprint by using public transport"},
-    {"id": 2, "title": "Use energy-efficient appliances", "description": "Reduce energy consumption by using energy-efficient appliances"}
-]
+# Sample mood tracking data
+mood_data = {
+    "user1": {"mood": "happy", "date": "2024-09-16"},
+    "user2": {"mood": "sad", "date": "2024-09-15"}
+}
 
-# API endpoint to get user data
-@app.route('/users', methods=['GET'])
-def get_users():
-    return jsonify(users)
+# Sample personalized recommendations
+recommendations = {
+    "stress": ["Exercise regularly", "Practice mindfulness"],
+    "anxiety": ["Seek social support", "Challenge negative thoughts"]
+}
 
-# API endpoint to get sustainability recommendations
+# API endpoint for mood tracking
+@app.route('/mood', methods=['POST'])
+def track_mood():
+    data = request.json
+    user_id = data['user_id']
+    mood = data['mood']
+    mood_data[user_id] = {"mood": mood, "date": "2024-09-16"}
+    return jsonify({"message": "Mood tracked successfully"})
+
+# API endpoint for personalized recommendations
 @app.route('/recommendations', methods=['GET'])
 def get_recommendations():
     return jsonify(recommendations)
 
-# API endpoint to create a new user
-@app.route('/users', methods=['POST'])
-def create_user():
-    new_user = {
-        "id": len(users) + 1,
-        "name": request.json['name'],
-        "email": request.json['email']
-    }
-    users.append(new_user)
-    return jsonify(new_user), 201
+# API endpoint for sentiment analysis
+@app.route('/sentiment', methods=['POST'])
+def analyze_sentiment():
+    data = request.json
+    text = data['text']
+    sentiment = sia.polarity_scores(text)
+    return jsonify({"sentiment": sentiment})
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
 ```
